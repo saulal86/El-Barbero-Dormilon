@@ -53,7 +53,7 @@ public class Barberia {
 			PanelB.adaptarImagen(PanelB.getLabelSillonBarbero(), "img/personaSiendoAfeitada.jpg");			
 			while (!finAfeitado) {
 				wait();
-				Thread.sleep(1000);
+				Thread.sleep(1000); 
 			}
 			afeitados++;
 			sillaBarberoOcupada = false;
