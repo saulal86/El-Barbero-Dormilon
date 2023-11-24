@@ -3,9 +3,12 @@ package iu;
 import java.awt.EventQueue;
 import java.util.Iterator;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.jvnet.substance.SubstanceLookAndFeel;
 
 import ClasesBarberia.Barberia;
 import ClasesBarberia.Barbero;
@@ -34,19 +37,16 @@ public class VentanaPrincipal extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 883, 644);
 		panelB = new panelBarberia_La_Corredoria();
-		//panelB.setBorder(new EmptyBorder(5, 5, 5, 5));
+		// panelB.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(panelB);
-		Barberia laBarberia = new Barberia(5, panelB);
+		Barberia laBarberia = new Barberia(panelB.getsillas(), panelB);
 		Barbero elBarbero = new Barbero(laBarberia);
 		elBarbero.start();
-		for(int i = 0; i<10; i++) {
+		for (int i = 0; i < panelB.getclientes(); i++) {
 			Cliente c = new Cliente(i + 1, laBarberia);
 			c.start();
 		}

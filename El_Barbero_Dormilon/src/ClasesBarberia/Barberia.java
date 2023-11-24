@@ -38,24 +38,27 @@ public class Barberia {
 
 			if (barberoDormido) {
 				//System.out.println("El cliente " + clienteId + " despierta al barbero.");
-				PanelB.adaptarImagen(PanelB.getLabelBarberoDurmiendo(), "img/barberoAfeitando.jpg");
 				notifyAll();
+				PanelB.adaptarImagen(PanelB.getLabelBarberoDurmiendo(), "img/barberoAfeitando.jpg");
+				
 			}
 			// proceso de afeitar al cliente.
 			nSillasEsperaOcupadas--;
 			PanelB.ocuparSillasEspera(nSillasEsperaOcupadas);
-			PanelB.adaptarImagen(PanelB.getLabelSillonBarbero(), "img/sillaBarbero.jpg");
 			// me siento en la silla del barbero
 			sillaBarberoOcupada = true;
 			finAfeitado = false;
 			// espero a que me afeite
 			System.out.println("El cliente " + clienteId + " en la silla del barbero.");
+			PanelB.adaptarImagen(PanelB.getLabelSillonBarbero(), "img/personaSiendoAfeitada.jpg");			
 			while (!finAfeitado) {
 				wait();
-				// Thread.sleep(1000);
+				Thread.sleep(1000);
 			}
 			afeitados++;
 			sillaBarberoOcupada = false;
+			PanelB.adaptarImagen(PanelB.getLabelSillonBarbero(), "img/sillaBarbero.jpg");			
+
 			notifyAll();// activa los hilos que estan en "wait"
 			PanelB.actualizaClientes(afeitados);
 			System.out.println("El cliente " + clienteId + " se va afeitado");

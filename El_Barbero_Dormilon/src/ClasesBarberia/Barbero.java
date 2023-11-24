@@ -13,7 +13,7 @@ public class Barbero extends Thread{
                 barberia.esperaCliente();//recibe un cliente
                 Thread.sleep(5000);
                 barberia.acabarAfeitado();
-                Thread.sleep(10000);
+                Thread.sleep(1000);
             }catch (InterruptedException e){//cojones33
             }
         }
