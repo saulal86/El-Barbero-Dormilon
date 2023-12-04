@@ -14,7 +14,7 @@ import ClasesBarberia.Barberia;
 import ClasesBarberia.Barbero;
 import ClasesBarberia.Cliente;
 
-public class VentanaPrincipal extends JFrame {
+public class EjecutableVentana extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -28,7 +28,7 @@ public class VentanaPrincipal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaPrincipal frame = new VentanaPrincipal();
+					EjecutableVentana frame = new EjecutableVentana();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 	}
 
-	public VentanaPrincipal() {
+	public EjecutableVentana() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 883, 644);
 		panelB = new panelBarberia_La_Corredoria();

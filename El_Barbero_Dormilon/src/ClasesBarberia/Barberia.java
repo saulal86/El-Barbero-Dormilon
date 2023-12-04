@@ -1,6 +1,6 @@
 package ClasesBarberia;
 
-import javax.swing.JLabel;
+//import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import iu.panelBarberia_La_Corredoria;
@@ -22,7 +22,7 @@ public class Barberia {
 	public synchronized boolean llegaCliente(int clienteId) throws InterruptedException {
 		if (nSillasEsperaOcupadas == nSillasEspera) {
 			// se va sin afeitarse ya que no hay sillas libres
-			//System.out.println("El cliente " + clienteId + " se va sin afeitarse.");
+			// System.out.println("El cliente " + clienteId + " se va sin afeitarse.");
 			JOptionPane.showMessageDialog(null, "El cliente " + clienteId + " se va sin afeitarse.");
 			PanelB.getLabelInfo().setText("El cliente " + clienteId + " se va sin afeitarse.");
 			return false;
@@ -37,10 +37,10 @@ public class Barberia {
 			}
 
 			if (barberoDormido) {
-				//System.out.println("El cliente " + clienteId + " despierta al barbero.");
+				// System.out.println("El cliente " + clienteId + " despierta al barbero.");
 				notifyAll();
 				PanelB.adaptarImagen(PanelB.getLabelBarberoDurmiendo(), "img/barberoAfeitando.jpg");
-				
+
 			}
 			// proceso de afeitar al cliente.
 			nSillasEsperaOcupadas--;
@@ -50,14 +50,14 @@ public class Barberia {
 			finAfeitado = false;
 			// espero a que me afeite
 			System.out.println("El cliente " + clienteId + " en la silla del barbero.");
-			PanelB.adaptarImagen(PanelB.getLabelSillonBarbero(), "img/personaSiendoAfeitada.jpg");			
+			PanelB.adaptarImagen(PanelB.getLabelSillonBarbero(), "img/personaSiendoAfeitada.jpg");
 			while (!finAfeitado) {
 				wait();
-				Thread.sleep(1000); 
+				Thread.sleep(1000);
 			}
 			afeitados++;
 			sillaBarberoOcupada = false;
-			PanelB.adaptarImagen(PanelB.getLabelSillonBarbero(), "img/sillaBarbero.jpg");			
+			PanelB.adaptarImagen(PanelB.getLabelSillonBarbero(), "img/sillaBarbero.jpg");
 
 			notifyAll();// activa los hilos que estan en "wait"
 			PanelB.actualizaClientes(afeitados);
